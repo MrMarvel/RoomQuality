@@ -3,6 +3,7 @@ package ru.mrmarvel.camoletapp.data
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import de.nycode.bcrypt.hash
 import de.nycode.bcrypt.verify
 import ru.mrmarvel.camoletapp.data.models.User
 import ru.mrmarvel.camoletapp.data.repository.UserRepository
@@ -30,8 +31,8 @@ class LoginScreenViewModel : ViewModel() {
         try {
             val users = userRepository.getAll()
             for (user in users) {
-                if (username.value != user.login) continue
-                val isSuccessful = verify(password.value, user.password.toByteArray())
+                if (username.value.lowercase() != user.login.lowercase()) continue
+                val isSuccessful = verify(password.value, hash(user.password))
                 if (!isSuccessful) {
                     loginError.value = LoginError.WRONG_PASSWORD
                     password.value = ""

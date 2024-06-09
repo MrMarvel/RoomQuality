@@ -117,7 +117,7 @@ generate_grids_and_stride(const int target_w, const int target_h, std::vector<in
 static void generate_proposals(std::vector <GridAndStride> grid_strides, const ncnn::Mat &pred,
                                float prob_threshold, std::vector <Object> &objects) {
     const int num_points = grid_strides.size();
-    const int num_class = 20;
+    const int num_class = 7;
     const int reg_max_1 = 16;
 
     for (int i = 0; i < num_points; i++) {
@@ -322,10 +322,7 @@ int Yolo::draw(cv::Mat& rgb, const std::vector<Object>& objects)
 {
 
     static const char* class_names[] = {
-            "bath", "ceiling_finish", "ceiling_rough", "cupboard_kitchen", "door",
-            "floor_finish","floor_rough", "no_door", "radiator", "sink", "slope",
-            "socket", "switch", "toilet","trash", "wall_finish", "wall_no",
-            "wall_plaster", "wall_rough", "windowsill", "floor_plaster","ceiling_plaster", "window"
+            "bad_ceiling", "bad_floor", "bad_wall", "good_ceiling", "good_window", "heater", "toilet", "trash"
     };
 
     static const unsigned char colors[19][3] = {
