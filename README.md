@@ -1,5 +1,7 @@
 ## <p align="center">ЗАДАЧА №9 ИНТЕРАКТИВНАЯ ПЛАТФОРМА ДЛЯ МОНИТОРИНГА ВНУТРЕННЕЙ ОТДЕЛКИ КВАРТИРЫ</p>
-## 💟 <a name="googledrive">[Ссылка на google drive материалов](https://drive.google.com/drive/folders/1Bl7Yy_IffbnMo5fWqKAvgjcRZAKZbjOb?usp=sharing)</a>
+## 💟 <a name="googledrive">[Ссылка на google drive материалов](https://drive.google.com/drive/folders/1Bl7Yy_IffbnMo5fWqKAvgjcRZAKZbjOb)</a>
+## 💟 <a name="train-model">[Ссылка на реализацию обучения модели](https://github.com/MrMarvel/RoomFinalWorkTraining24)</a>
+
 *Сергей Куликов (https://github.com/MrMarvel) - ML-engineer, Mobile-разработчик* 
 
 ## Задание
