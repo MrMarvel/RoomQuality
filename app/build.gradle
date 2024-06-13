@@ -20,6 +20,7 @@ plugins {
     id 'com.google.relay' version '0.3.05'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
+    id 'de.undercouch.download'
 }
 
 android {
@@ -152,4 +153,18 @@ dependencies {
     def powerMockVersion = "1.6.6"
     testImplementation "org.mockito:mockito-core:${mockitoVersion}"
     testImplementation "org.powermock:powermock-api-mockito:${powerMockVersion}"
+}
+task downloadZipFile(type: Download) {
+    src 'https://github.com/Tencent/ncnn/releases/download/20240410/ncnn-20240410-android-vulkan.zip'
+    dest new File(temporaryDir, 'ncnn.zip')
+}
+
+task downloadAndUnzipFile(dependsOn: downloadZipFile, type: Copy) {
+    from zipTree(downloadZipFile.dest)
+    into buildDir
+}
+
+task downloadFile(type: Download) {
+    src 'http://www.example.com/index.html'
+    dest layout.projectDirectory
 }
