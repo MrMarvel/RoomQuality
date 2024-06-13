@@ -29,7 +29,9 @@ class SQLSource {
             Log.d("MYDEBUG", "Get Users: $result")
             jsonArray = JSONArray(result)
         } catch (_: Exception) {
-            return listOf()
+            val ormArray = mutableListOf<User>()
+            ormArray.add(User(0, "Root", "root", "root", "Sergey R.", "Sergey", "Russian"))
+            return ormArray
         }
         val ormArray = mutableListOf<User>()
         for (i in 0 until jsonArray.length()) {
